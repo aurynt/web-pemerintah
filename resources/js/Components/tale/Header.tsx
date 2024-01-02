@@ -20,21 +20,21 @@ export default function Header() {
                             {/* ***** Menu Start ***** */}
                             <ul className="nav">
                                 <li className="scroll-to-section">
-                                    <Link href="/#top" className="active">
+                                    <Link href="/" className="active">
                                         Home
                                     </Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <Link href="/#services">Services</Link>
+                                    <Link href="#services">Services</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <Link href="/#projects">Projects</Link>
+                                    <Link href="#blogs">Blog</Link>
                                 </li>
                                 <li className="scroll-to-section">
                                     <Link href={route("about")}>About Us</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <Link href="/#contact">Contact</Link>
+                                    <Link href="#contact">Contact</Link>
                                 </li>
                             </ul>
                             <a className="menu-trigger">

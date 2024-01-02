@@ -1,6 +1,6 @@
-import React from "react";
+import { Setting } from "@/types";
 
-export default function Contact() {
+export default function Contact({ setting }: { setting: Setting }) {
     return (
         <div className="contact-us section" id="contact">
             <div className="container">
@@ -111,7 +111,7 @@ export default function Contact() {
                                                     <i className="fa fa-phone" />
                                                     <h4>
                                                         <a href="#">
-                                                            010-020-0340
+                                                            {setting.telp}
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -121,12 +121,7 @@ export default function Contact() {
                                                     <i className="fa fa-envelope" />
                                                     <h4>
                                                         <a href="#">
-                                                            info@company.com
-                                                        </a>
-                                                    </h4>
-                                                    <h4>
-                                                        <a href="#">
-                                                            hello@company.com
+                                                            {setting.email}
                                                         </a>
                                                     </h4>
                                                 </div>
@@ -136,9 +131,7 @@ export default function Contact() {
                                                     <i className="fa fa-map-marker" />
                                                     <h4>
                                                         <a href="#">
-                                                            Sunny Isles Beach,
-                                                            FL 33160, United
-                                                            States
+                                                            {setting.address}
                                                         </a>
                                                     </h4>
                                                 </div>

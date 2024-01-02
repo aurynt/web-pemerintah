@@ -33,6 +33,7 @@ Route::post('post', [PostController::class, 'store'])->name('post.add');
 Route::patch('post/{id}', [PostController::class, 'update'])->name('post.update');
 Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delete');
 Route::delete('category/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
+Route::post('category', [CategoryController::class, 'store'])->name('category.add');
 Route::patch('about', [AboutController::class, 'update'])->name('about.update');
 Route::patch('setting', [SettingController::class, 'update'])->name('setting.update');
 

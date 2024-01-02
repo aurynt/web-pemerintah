@@ -64,7 +64,6 @@ export default function News({
                     <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                         News
                     </h2>
-                    <PrimaryButton>add ategory</PrimaryButton>
                 </div>
             }
         >
@@ -218,92 +217,6 @@ export default function News({
                     </Tabs>
                 </div>
             </div>
-
-            {/* <Modal
-                show={showFormCategory}
-                onClose={() => setShowFormCategory(!showFormCategory)}
-            >
-                <h1 className="text-2xl capitalize mb-2 mx-5 mt-5 font-bold">
-                    add category
-                </h1>
-                <form onSubmit={update} className="m-5">
-                    <div className="mt-4">
-                        <InputLabel htmlFor="title" value="title" />
-
-                        <TextInput
-                            id="title"
-                            type="text"
-                            name="title"
-                            value={data.name}
-                            className="mt-1 block w-full"
-                            autoComplete="current-title"
-                            onChange={(e) => setData("title", e.target.value)}
-                        />
-                        <InputError message={errors.title} />
-                    </div>
-                    <div className="mt-4">
-                        <InputLabel htmlFor="category" value="category" />
-
-                        <Select
-                            id="category"
-                            name="category"
-                            className="mt-1 block w-full"
-                            autoComplete="current-category"
-                            value={data.category}
-                            onChange={(e) =>
-                                setData(
-                                    "category",
-                                    e.target.value as unknown as number
-                                )
-                            }
-                            options={categories}
-                        />
-
-                        <InputError message={errors.category} />
-                    </div>
-                    <div className="mt-4">
-                        <InputLabel htmlFor="photo" value="photo" />
-
-                        <TextInput
-                            accept="image/*"
-                            id="photo"
-                            type="file"
-                            name="photo"
-                            onChange={(e) => {
-                                setData(
-                                    "photo",
-                                    e.target.files && (e.target.files[0] as any)
-                                );
-                            }}
-                            className="mt-1 block w-full p-2 border border-1"
-                        />
-
-                        <InputError message={errors.photo} />
-                    </div>
-                    <div className="mt-4">
-                        <InputLabel htmlFor="information" value="information" />
-
-                        <textarea
-                            onChange={(e) =>
-                                setData("information", e.target.value)
-                            }
-                            value={data.information}
-                            name="information"
-                            id="information"
-                            className="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
-                            rows={10}
-                        ></textarea>
-
-                        <InputError message={errors.information} />
-                    </div>
-
-                    <div className="flex mt-5 justify-end">
-                        <PrimaryButton disabled={processing}>
-                            save
-                        </PrimaryButton>
-                    </div>
-                </form>
-            </Modal> */}
         </Authenticated>
     );
 }

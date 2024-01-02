@@ -28,17 +28,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request, Category $category)
     {
+        // $category = new Category();
         $request->validate([
-            'name' => 'required|unique',
-            'author' => 'required',
+            'name' => 'required|unique:categories',
         ]);
 
         $category->name = $request->name;
-        $category->author = $request->author;
+        $category->users_id = auth()->user()->id;
 
-        $res = $category->save();
+        $category->save();
 
-        return response(['data' => $res, 'message' => 'berhasil nambah']);
+        return redirect()->back();
     }
 
     /**

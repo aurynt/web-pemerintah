@@ -1,12 +1,18 @@
-import { PageProps } from "@/types";
+import { PageProps, Post, Setting } from "@/types";
 import Guest from "@/Layouts/GuestLayout";
 import Contact from "@/Components/tale/Contact";
 import Banner from "@/Components/tale/Banner";
-import Project from "@/Components/tale/Project";
 import Service from "@/Components/tale/Service";
 import { Link } from "@inertiajs/react";
+import Blog from "@/Components/tale/Blog";
 
-export default function Welcome() {
+export default function Welcome({
+    setting,
+    posts,
+}: {
+    setting: Setting;
+    posts: Post[];
+}) {
     return (
         <Guest>
             <Banner>
@@ -21,20 +27,21 @@ export default function Welcome() {
                     <span>Untuk Anda</span>
                 </h4>
                 <p>
+                    {setting.desc}
+                    {/* tempatnya berita terpercaya yang memberikan informasi
                     Selamat datang di <Link href="/">Liputan6.com</Link>,
-                    tempatnya berita terpercaya yang memberikan informasi
                     faktual, akurat, dan terkini. Kami berkomitmen untuk menjadi
                     sumber pemberitaan terbaik, menyajikan berita tanpa bias,
                     dan menjaga integritas informasi. Dapatkan update terbaru
-                    hanya di sini!
+                    hanya di sini! */}
                 </p>
                 <div className="main-button scroll-to-section">
                     <a href={route("about")}>About us</a>
                 </div>
             </Banner>
             <Service />
-            <Project />
-            <Contact />
+            <Blog data={posts} />
+            <Contact setting={setting} />
         </Guest>
     );
 }

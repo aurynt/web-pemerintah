@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ class AppController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'phpVersion' => PHP_VERSION,
+            'posts' => Post::orderBy('created_at', 'desc')->take(4)->get()
         ]);
     }
 
@@ -50,7 +52,7 @@ class AppController extends Controller
         $data = [
             'posts' => DB::table('posts')->select('posts.*', 'categories.name as category', 'users.name as author')
                 ->join('users', 'users.id', '=', 'posts.users_id')->join('categories', 'categories.id', '=', 'posts.categories_id')->get(),
-            'categories' => DB::table('categories')->select('categories.*', 'categories.name as category', 'users.name as author')->join('users', 'users.id', '=', 'categories.users_id')->get()
+            'categories' => DB::table('categories')->select('categories.*', 'categories.name as category', 'users.name as author')->leftJoin('users', 'users.id', '=', 'categories.users_id')->get()
         ];
         return Inertia::render('News/News', $data);
     }

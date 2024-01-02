@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "@inertiajs/react";
 
 export default function Footer() {
     return (
@@ -6,15 +6,20 @@ export default function Footer() {
             <div className="container">
                 <div className="col-lg-12">
                     <p>
-                        Copyright © 2036 <a href="#">Tale SEO Agency</a>. All
-                        rights reserved.
+                        Copyright © 2024{" "}
+                        <Link className="text-blue-700" href="/">
+                            Liputan6
+                        </Link>
+                        . All rights reserved.
                         <br />
-                        Design:{" "}
-                        <a href="https://templatemo.com" target="_blank">
-                            TemplateMo
-                        </a>{" "}
-                        Distribution:{" "}
-                        <a href="https://themewagon.com">ThemeWagon</a>
+                        Design by{" "}
+                        <a
+                            className="text-blue-700"
+                            href="https://auryncode.vercel.app"
+                            target="_blank"
+                        >
+                            Auryncode
+                        </a>
                     </p>
                 </div>
             </div>
