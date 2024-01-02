@@ -14,14 +14,13 @@ export default function Service() {
                             <div className="col-lg-12">
                                 <div className="section-heading">
                                     <h2>
-                                        We Provide <em>Different Services</em>{" "}
-                                        &amp;
-                                        <span>Features</span> For Your Agency
+                                        Kami Menyediakan <em>Banyak Layanan</em>{" "}
+                                        Untuk Anda
                                     </h2>
                                     <div className="line-dec" />
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed doers eiusmod.
+                                        Solusi yang simpel, cepat, dan efisien
+                                        untuk kebutuhan Anda.
                                     </p>
                                 </div>
                             </div>
@@ -34,7 +33,7 @@ export default function Service() {
                                             className="templatemo-feature"
                                         />
                                     </div>
-                                    <h4>Discover More on Latest SEO Trends</h4>
+                                    <h4>Trend Terkini</h4>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-sm-6">
@@ -46,7 +45,7 @@ export default function Service() {
                                             className="templatemo-feature"
                                         />
                                     </div>
-                                    <h4>Real-Time Big Data Analysis</h4>
+                                    <h4>Berita Terkini</h4>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-sm-6">
@@ -58,9 +57,7 @@ export default function Service() {
                                             className="templatemo-feature"
                                         />
                                     </div>
-                                    <h4>
-                                        Precise Data Analysis &amp; Prediction
-                                    </h4>
+                                    <h4>Laporan terkini</h4>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-sm-6">
@@ -72,7 +69,7 @@ export default function Service() {
                                             className="templatemo-feature"
                                         />
                                     </div>
-                                    <h4>SEO Marketing &amp; Social Media</h4>
+                                    <h4>Tanya Jawab</h4>
                                 </div>
                             </div>
                         </div>

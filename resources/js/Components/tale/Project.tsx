@@ -1,4 +1,3 @@
-import React from "react";
 import project01 from "../../../../public/assets/images/projects-01.jpg";
 import project02 from "../../../../public/assets/images/projects-02.jpg";
 import project03 from "../../../../public/assets/images/projects-03.jpg";
@@ -12,14 +11,11 @@ export default function Project() {
                     <div className="col-lg-6">
                         <div className="section-heading">
                             <h2>
-                                Discover Our <em>Work</em> &amp;{" "}
-                                <span>Projects</span>
+                                Berita <em>Hangat</em> &amp;{" "}
+                                <span>Terkini</span>
                             </h2>
                             <div className="line-dec" />
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed doers eiusmod.
-                            </p>
+                            <p>Baca berita terkini hanya di Liputan6</p>
                         </div>
                     </div>
                 </div>

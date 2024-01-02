@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "@inertiajs/react";
+import logo from "../../../../public/assets/images/liputan6.png";
 
 export default function Header() {
     return (
@@ -8,43 +9,32 @@ export default function Header() {
                     <div className="col-12">
                         <nav className="main-nav">
                             {/* ***** Logo Start ***** */}
-                            <a href="index.html" className="logo">
+                            <Link href="/" className="logo">
                                 <img
-                                    src="../../../public/assets/images/logo.png"
+                                    src={logo}
                                     alt=""
-                                    style={{ maxWidth: 112 }}
+                                    style={{ maxWidth: 160 }}
                                 />
-                            </a>
+                            </Link>
                             {/* ***** Logo End ***** */}
                             {/* ***** Menu Start ***** */}
                             <ul className="nav">
                                 <li className="scroll-to-section">
-                                    <a href="#top" className="active">
+                                    <Link href="/#top" className="active">
                                         Home
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#services">Services</a>
+                                    <Link href="/#services">Services</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#projects">Projects</a>
-                                </li>
-                                <li className="has-sub">
-                                    <a href="javascript:void(0)">Pages</a>
-                                    <ul className="sub-menu">
-                                        <li>
-                                            <a href="about.html">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="faqs.html">FAQs</a>
-                                        </li>
-                                    </ul>
+                                    <Link href="/#projects">Projects</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#infos">Infos</a>
+                                    <Link href={route("about")}>About Us</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <a href="#contact">Contact</a>
+                                    <Link href="/#contact">Contact</Link>
                                 </li>
                             </ul>
                             <a className="menu-trigger">
