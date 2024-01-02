@@ -8,7 +8,10 @@ import "../../../public/vendor/bootstrap/css/bootstrap.min.css";
 import Header from "@/Components/tale/Header";
 import Footer from "@/Components/tale/Footer";
 
-export default function Guest({ children }: PropsWithChildren) {
+export default function Guest({
+    children,
+    title,
+}: PropsWithChildren<{ title: string }>) {
     return (
         <>
             <Head>
@@ -21,7 +24,7 @@ export default function Guest({ children }: PropsWithChildren) {
                     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
                     rel="stylesheet"
                 />
-                <title>Home</title>
+                <title>{title}</title>
                 {/* Additional CSS Files */}
                 <link
                     rel="stylesheet"

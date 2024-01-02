@@ -13,7 +13,8 @@ export type PageProps<
     auth: {
         user: User;
     };
-    setting:Setting
+    setting: Setting;
+    category: Category[];
     ziggy: Config & { location: string };
 };
 
@@ -36,14 +37,14 @@ export type Category = {
 };
 
 export type About = {
-    id:number;
+    id: number;
     misi: string;
     visi: string;
     sejarah: string;
     desc: string;
 };
 export type Setting = {
-    id:number;
+    id: number;
     logo: string;
     email: string;
     telp: string;

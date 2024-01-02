@@ -5,7 +5,7 @@ import type { About } from "@/types";
 
 export default function About({ about }: { about: About }) {
     return (
-        <Guest>
+        <Guest title={"About"}>
             <Banner>
                 <div className="caption  header-text">
                     <h6>

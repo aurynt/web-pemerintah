@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
@@ -72,16 +73,27 @@ class AppController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function blogs()
     {
-        //
+        $data = [
+            'category' => Category::all(),
+            'blog'
+            => DB::table('posts')->select('posts.*', 'categories.name as category', 'users.name as author')
+                ->join('users', 'users.id', '=', 'posts.users_id')->join('categories', 'categories.id', '=', 'posts.categories_id')->get(),
+        ];
+        return Inertia::render('Blog/Blogs', $data);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function detail($id)
     {
-        //
+        $data = [
+            'blog'
+            => DB::table('posts')->select('posts.*', 'categories.name as category', 'users.name as author')
+                ->join('users', 'users.id', '=', 'posts.users_id')->join('categories', 'categories.id', '=', 'posts.categories_id')->where('posts.id', '=', $id)->get()[0],
+        ];
+        return Inertia::render('Blog/Detail', $data);
     }
 }

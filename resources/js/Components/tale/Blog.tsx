@@ -17,7 +17,15 @@ export default function Blog({ data }: { data: Post[] }) {
                                 <span>Terkini</span>
                             </h2>
                             <div className="line-dec" />
-                            <p>Baca berita terkini hanya di Liputan6</p>
+                            <p>
+                                Baca berita terkini hanya{" "}
+                                <Link
+                                    className="underline"
+                                    href={route("blog")}
+                                >
+                                    disini
+                                </Link>
+                            </p>
                         </div>
                     </div>
                 </div>

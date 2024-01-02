@@ -1,9 +1,8 @@
-import { PageProps, Post, Setting } from "@/types";
+import { Post, Setting } from "@/types";
 import Guest from "@/Layouts/GuestLayout";
 import Contact from "@/Components/tale/Contact";
 import Banner from "@/Components/tale/Banner";
 import Service from "@/Components/tale/Service";
-import { Link } from "@inertiajs/react";
 import Blog from "@/Components/tale/Blog";
 
 export default function Welcome({
@@ -14,7 +13,7 @@ export default function Welcome({
     posts: Post[];
 }) {
     return (
-        <Guest>
+        <Guest title="Home">
             <Banner>
                 <h6>
                     LIPUTAN6
