@@ -21,7 +21,7 @@ export default function Blogs({
     };
     return (
         <BlogLayout>
-            <div className="flex gap-3 border-b-2 pb-2 px-4 overflow-x-scroll">
+            <div className="flex gap-3 border-b-2 pb-2 px-4 sm:px-20 overflow-x-scroll">
                 <button
                     onClick={() => filterBy(0)}
                     className={`hover:text-blue-700 capitalize ${
@@ -49,27 +49,26 @@ export default function Blogs({
                 data.map((item, i) => (
                     <div
                         key={i}
-                        className="flex gap-2 border mx-10 my-4 shadow-lg rounded-xl p-4"
+                        className="flex border mx-3 sm:mx-40 my-4 flex-col sm:flex-row shadow-lg rounded-xl"
                     >
-                        <div className="h-60 w-[30rem] overflow-hidden shadow-xl rounded-xl">
+                        <div className="h-44 w-full sm:w-[30rem] overflow-hidden border-r sm:rounded-l-xl">
                             <img
-                                className="w-full"
+                                className="w-full h-full overflow-hidden"
                                 src={`storage/post/${item.photo}`}
                                 alt=""
                             />
                         </div>
-                        <div className="flex flex-col shadow-xl rounded-xl w-full border p-4 relative">
-                            <h1 className="text-2xl font-bold">{item.title}</h1>
+                        <div className="flex flex-col border-r rounded-r-xl w-full border p-4 relative">
+                            <Link
+                                href={route("blog.detail", item.id)}
+                                className="text-2xl font-bold hover:text-orange-600 line-clamp-1"
+                            >
+                                {item.title}
+                            </Link>
                             <p className="text-sm text-gray-500 mb-3">
                                 {item.category}
                             </p>
-                            <p>{item.information}</p>
-                            <Link
-                                href={route("blog.detail", item.id)}
-                                className="absolute bottom-4"
-                            >
-                                Learn More
-                            </Link>
+                            <p className="line-clamp-3">{item.information}</p>
                         </div>
                     </div>
                 ))

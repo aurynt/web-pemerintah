@@ -11,6 +11,9 @@ export default function Select({
             className="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
             {...props}
         >
+            <option value="0">
+                Select Category
+            </option>
             {options.map((item, i) => (
                 <option key={i} value={item.id}>
                     {item.name}

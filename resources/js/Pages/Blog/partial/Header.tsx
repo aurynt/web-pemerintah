@@ -5,7 +5,7 @@ import type { Category } from "@/types";
 export default function Header() {
     return (
         <>
-            <div className="flex justify-between py-4 px-5">
+            <div className="flex justify-between py-4 px-3 sm:px-20">
                 <ApplicationLogo />
                 <div className="flex gap-3">
                     <Link className="text-gray-800" href="/">

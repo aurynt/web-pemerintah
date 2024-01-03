@@ -6,6 +6,7 @@ import TextInput from "@/Components/TextInput";
 import { useForm } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
 import type { Setting } from "@/types";
+import Swal from "sweetalert2";
 
 export default function WebSetting({
     className = "",
@@ -14,39 +15,27 @@ export default function WebSetting({
     className?: string;
     setting: Setting;
 }) {
-    const {
-        data,
-        setData,
-        errors,
-        patch,
-        reset,
-        processing,
-        recentlySuccessful,
-    } = useForm({
-        logo: setting.logo,
-        email: setting.email,
-        desc: setting.desc,
-        address: setting.address,
-        telp: setting.telp,
-    });
+    const { data, setData, errors, patch, processing, recentlySuccessful } =
+        useForm({
+            logo: setting.logo,
+            email: setting.email,
+            desc: setting.desc,
+            address: setting.address,
+            telp: setting.telp,
+        });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
         patch(route("setting.update"), {
             preserveScroll: true,
-            onSuccess: () => reset(),
-            // onError: (errors) => {
-            //     if (errors.password) {
-            //         reset("password", "password_confirmation");
-            //         passwordInput.current?.focus();
-            //     }
-
-            //     if (errors.current_password) {
-            //         reset("current_password");
-            //         currentPasswordInput.current?.focus();
-            //     }
-            // },
+            onSuccess: () => {
+                Swal.fire({
+                    title: "Success",
+                    text: "Succesfully added post",
+                    icon: "success",
+                });
+            },
         });
     };
 
@@ -75,6 +64,7 @@ export default function WebSetting({
                 </div>
 
                 <div>
+                    <img src={`storage/logo/${data.logo}`} alt="logo" />
                     <InputLabel htmlFor="logo" value="Logo" />
 
                     <TextInput

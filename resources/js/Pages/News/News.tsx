@@ -20,8 +20,6 @@ export default function News({
     posts,
     categories,
 }: PageProps<{ posts: Post[]; categories: Category[] }>) {
-    const [showFormCategory, setShowFormCategory] = useState(false);
-
     const {
         reset,
         data,
@@ -35,7 +33,7 @@ export default function News({
     } = useForm(
         {
             title: "",
-            category: 1,
+            category: 0,
             photo: undefined,
             information: "",
         } || { name: "" }
@@ -51,7 +49,7 @@ export default function News({
                     text: "Succesfully added post",
                     icon: "success",
                 });
-                reset();
+                reset("title", "information", "category");
             },
         });
     };
@@ -132,6 +130,7 @@ export default function News({
                                                 name="category"
                                                 className="mt-1 block w-full"
                                                 autoComplete="current-category"
+                                                value={data.category}
                                                 onChange={(e) =>
                                                     setData(
                                                         "category",

@@ -20,6 +20,8 @@ export default function NewsList({
     const [search, setSearch] = useState("");
     const [show, setShow] = useState(false);
     const [id, setId] = useState(0);
+    console.log(posts);
+
     const {
         reset,
         data,
@@ -109,80 +111,87 @@ export default function NewsList({
                     className="w-full mb-5"
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <table className="table-auto w-full text-center">
-                    <thead>
-                        <tr className="border-y-2 bg-gray-400">
-                            <th className="py-2 capitalize font-bold">no</th>
-                            <th className="py-2 capitalize font-bold">title</th>
-                            <th className="py-2 capitalize font-bold">
-                                category
-                            </th>
-                            <th className="py-2 capitalize font-bold">
-                                information
-                            </th>
-                            <th className="py-2 capitalize font-bold">photo</th>
-                            <th className="py-2 capitalize font-bold">
-                                author
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {dataPosts.length !== 0 ? (
-                            dataPosts.map((item, i) => (
-                                <tr
-                                    key={i}
-                                    className="border-y-2 hover:bg-gray-200"
-                                >
-                                    <td className="py-2">{i + 1}</td>
-                                    <td className="py-2">{item.title}</td>
-                                    <td className="py-2">{item.category}</td>
-                                    <td className="py-2">{item.information}</td>
-                                    <td className="py-2">
-                                        <button
-                                            className="text-blue-600 capitalize underline"
-                                            onClick={() => {
-                                                Swal.fire({
-                                                    imageUrl: `storage/post/${item.photo}`,
-                                                    imageWidth: "90%",
-                                                    showConfirmButton: false,
-                                                });
-                                            }}
-                                        >
-                                            show photo
-                                        </button>
-                                    </td>
-                                    <td className="https://laravel.com/docs/10.x/vite#reactpy-2">
-                                        {item.author}
-                                    </td>
-                                    <td className="py-2 flex gap-2">
-                                        <PrimaryButton
-                                            onClick={() => handleEdit(item)}
-                                        >
-                                            edit
-                                        </PrimaryButton>
-                                        <DangerButton
-                                            onClick={() => {
-                                                handleDelete(item.id);
-                                            }}
-                                        >
-                                            delete
-                                        </DangerButton>
+                <div className="overflow-scroll">
+                    <table className="table-auto w-[50rem] sm:w-full text-center">
+                        <thead>
+                            <tr className="border-y-2 bg-gray-400">
+                                <th className="py-2 capitalize font-bold">
+                                    no
+                                </th>
+                                <th className="py-2 capitalize font-bold w-[50%]">
+                                    title
+                                </th>
+                                <th className="py-2 capitalize font-bold">
+                                    category
+                                </th>
+                                <th className="py-2 capitalize font-bold">
+                                    photo
+                                </th>
+                                <th className="py-2 capitalize font-bold">
+                                    author
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dataPosts.length !== 0 ? (
+                                dataPosts.map((item, i) => (
+                                    <tr
+                                        key={i}
+                                        className="border-y-2 hover:bg-gray-200"
+                                    >
+                                        <td className="py-2">{i + 1}</td>
+                                        <td className="py-2">{item.title}</td>
+                                        <td className="py-2">
+                                            {item.category}
+                                        </td>
+                                        <td className="py-2">
+                                            <button
+                                                className="text-blue-600 capitalize underline"
+                                                onClick={() => {
+                                                    Swal.fire({
+                                                        imageUrl: `storage/post/${item.photo}`,
+                                                        imageWidth: "90%",
+                                                        showConfirmButton:
+                                                            false,
+                                                    });
+                                                }}
+                                            >
+                                                show photo
+                                            </button>
+                                        </td>
+                                        <td className="https://laravel.com/docs/10.x/vite#reactpy-2">
+                                            {item.author}
+                                        </td>
+                                        <td className="py-2 flex gap-2">
+                                            <PrimaryButton
+                                                onClick={() => handleEdit(item)}
+                                            >
+                                                edit
+                                            </PrimaryButton>
+                                            <DangerButton
+                                                onClick={() => {
+                                                    handleDelete(item.id);
+                                                }}
+                                            >
+                                                delete
+                                            </DangerButton>
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td
+                                        colSpan={6}
+                                        className="capitalize py-2 bg-gray-100"
+                                    >
+                                        not found
                                     </td>
                                 </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td
-                                    colSpan={6}
-                                    className="capitalize py-2 bg-gray-100"
-                                >
-                                    not found
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <Modal show={show} onClose={() => setShow(!show)}>
                 <h1 className="text-2xl capitalize mb-2 mx-5 mt-5 font-bold">

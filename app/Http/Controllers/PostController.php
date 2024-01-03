@@ -110,8 +110,11 @@ class PostController extends Controller
     public function destroy(Post $post, $id)
     {
         $post = $post->find($id);
-        Storage::delete('public/post/' . $post->photo);
-        $post->delete();
-        return redirect()->back();
+        if ($post->id == $id) {
+            Storage::delete('public/post/' . $post->photo);
+            $post->delete();
+            return redirect()->back();
+        }
+        return false;
     }
 }

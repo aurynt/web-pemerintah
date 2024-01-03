@@ -7,12 +7,12 @@ export default function Detail({ blog }: { blog: Post }) {
     return (
         <BlogLayout>
             <div className="flex justify-center">
-                <div className="flex flex-col w-[80%] h-[60%] rounded-xl items-center shadow-xl border p-5 gap-2 mb-10">
-                    <div className="flex justify-between items-center w-full px-4 mb-3">
+                <div className="flex flex-col w-full rounded-xl items-center shadow-xl border p-5 gap-2 mb-10">
+                    <div className="flex justify-between sm:flex-row flex-col sm:items-center w-full mb-3">
                         <h1 className="text-2xl font-bold">{blog.title}</h1>
                         <p className="text-gray-600">{blog.category}</p>
                     </div>
-                    <div className="w-full] border shadow-lg p-3 rounded-xl">
+                    <div className="w-full] border shadow-lg rounded-xl">
                         <img
                             src={`/storage/post/${blog.photo}`}
                             alt=""

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('visi');
             $table->text('misi');
             $table->text('sejarah');
-            $table->string('desc');
+            $table->text('desc');
             $table->timestamps();
         });
     }

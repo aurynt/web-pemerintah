@@ -5,16 +5,9 @@ import { Link, useForm, usePage } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
 import { FormEventHandler } from "react";
 import { About, PageProps } from "@/types";
+import Swal from "sweetalert2";
 
-export default function AboutUs({
-    mustVerifyEmail,
-    status,
-    className = "",
-}: {
-    mustVerifyEmail: boolean;
-    status?: string;
-    className?: string;
-}) {
+export default function AboutUs({ className = "" }: { className?: string }) {
     const about = usePage<PageProps<{ about: About }>>().props.about;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
@@ -28,7 +21,15 @@ export default function AboutUs({
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        patch(route("about.update"));
+        patch(route("about.update"), {
+            onSuccess: () => {
+                Swal.fire({
+                    title: "Success",
+                    text: "Succesfully updated",
+                    icon: "success",
+                });
+            },
+        });
     };
 
     return (

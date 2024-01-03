@@ -25,15 +25,7 @@ export default function Welcome({
                     Sumber <em>Informasi</em> Terpercaya
                     <span>Untuk Anda</span>
                 </h4>
-                <p>
-                    {setting.desc}
-                    {/* tempatnya berita terpercaya yang memberikan informasi
-                    Selamat datang di <Link href="/">Liputan6.com</Link>,
-                    faktual, akurat, dan terkini. Kami berkomitmen untuk menjadi
-                    sumber pemberitaan terbaik, menyajikan berita tanpa bias,
-                    dan menjaga integritas informasi. Dapatkan update terbaru
-                    hanya di sini! */}
-                </p>
+                <p>{setting.desc}</p>
                 <div className="main-button scroll-to-section">
                     <a href={route("about")}>About us</a>
                 </div>

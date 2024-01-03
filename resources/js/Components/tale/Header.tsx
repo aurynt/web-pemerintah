@@ -28,7 +28,7 @@ export default function Header() {
                                     <Link href="#services">Services</Link>
                                 </li>
                                 <li className="scroll-to-section">
-                                    <Link href="#blogs">Blog</Link>
+                                    <Link href={route("blog")}>Blog</Link>
                                 </li>
                                 <li className="scroll-to-section">
                                     <Link href={route("about")}>About Us</Link>

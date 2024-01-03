@@ -34,7 +34,14 @@ class AppController extends Controller
      */
     public function dashboard()
     {
-        return Inertia::render('Dashboard');
+        $data = [
+            'count' => [
+                'posts' => DB::table('posts')->count(),
+                'categories' => DB::table('categories')->count(),
+                'users' => DB::table('users')->count(),
+            ]
+        ];
+        return Inertia::render('Dashboard', $data);
     }
 
     /**
@@ -56,7 +63,7 @@ class AppController extends Controller
         $data = [
             'posts' => DB::table('posts')->select('posts.*', 'categories.name as category', 'users.name as author')
                 ->join('users', 'users.id', '=', 'posts.users_id')->join('categories', 'categories.id', '=', 'posts.categories_id')->get(),
-            'categories' => DB::table('categories')->select('categories.*', 'categories.name as category', 'users.name as author')->leftJoin('users', 'users.id', '=', 'categories.users_id')->get()
+            'categories' => DB::table('categories')->select('categories.*', 'categories.name as category', 'users.name as author')->join('users', 'users.id', '=', 'categories.users_id')->get()
         ];
         return Inertia::render('News/News', $data);
     }
