@@ -1,6 +1,20 @@
 import { Setting } from "@/types";
+import { useForm } from "@inertiajs/react";
+import { FormEventHandler } from "react";
 
 export default function Contact({ setting }: { setting: Setting }) {
+    const { post, data, setData, errors } = useForm({
+        name: "",
+        email: "",
+        surname: "",
+        subject: "",
+        message: "",
+    });
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+
+        post(route("contact"));
+    };
     return (
         <div className="contact-us section" id="contact">
             <div className="container">
@@ -22,11 +36,7 @@ export default function Contact({ setting }: { setting: Setting }) {
                                     </div>
                                 </div>
                                 <div className="col-lg-8">
-                                    <form
-                                        id="contact-form"
-                                        action=""
-                                        method="post"
-                                    >
+                                    <form onSubmit={submit} id="contact-form">
                                         <div className="row">
                                             <div className="col-lg-12">
                                                 <div className="section-heading">
@@ -43,6 +53,13 @@ export default function Contact({ setting }: { setting: Setting }) {
                                                         type="name"
                                                         name="name"
                                                         id="name"
+                                                        value={data.name}
+                                                        onChange={(e) =>
+                                                            setData(
+                                                                "name",
+                                                                e.target.value
+                                                            )
+                                                        }
                                                         placeholder="Your Name..."
                                                         autoComplete="on"
                                                     />
@@ -54,6 +71,13 @@ export default function Contact({ setting }: { setting: Setting }) {
                                                         type="surname"
                                                         name="surname"
                                                         id="surname"
+                                                        value={data.surname}
+                                                        onChange={(e) =>
+                                                            setData(
+                                                                "surname",
+                                                                e.target.value
+                                                            )
+                                                        }
                                                         placeholder="Your Surname..."
                                                         autoComplete="on"
                                                     />
@@ -64,6 +88,13 @@ export default function Contact({ setting }: { setting: Setting }) {
                                                     <input
                                                         type="text"
                                                         name="email"
+                                                        value={data.email}
+                                                        onChange={(e) =>
+                                                            setData(
+                                                                "email",
+                                                                e.target.value
+                                                            )
+                                                        }
                                                         id="email"
                                                         pattern="[^ @]*@[^ @]*"
                                                         placeholder="Your E-mail..."
@@ -75,6 +106,13 @@ export default function Contact({ setting }: { setting: Setting }) {
                                                     <input
                                                         type="subject"
                                                         name="subject"
+                                                        value={data.subject}
+                                                        onChange={(e) =>
+                                                            setData(
+                                                                "subject",
+                                                                e.target.value
+                                                            )
+                                                        }
                                                         id="subject"
                                                         placeholder="Subject..."
                                                         autoComplete="on"
@@ -85,9 +123,15 @@ export default function Contact({ setting }: { setting: Setting }) {
                                                 <fieldset>
                                                     <textarea
                                                         name="message"
+                                                        value={data.message}
+                                                        onChange={(e) =>
+                                                            setData(
+                                                                "message",
+                                                                e.target.value
+                                                            )
+                                                        }
                                                         id="message"
                                                         placeholder="Your Message"
-                                                        defaultValue={""}
                                                     />
                                                 </fieldset>
                                             </div>

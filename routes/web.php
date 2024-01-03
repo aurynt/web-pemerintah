@@ -28,6 +28,7 @@ Route::middleware('guest')->group(
         Route::get('/about', [AppController::class, 'about'])->name('about');
         Route::get('blog/{id}', [AppController::class, 'detail'])->name('blog.detail');
         Route::get('blogs', [AppController::class, 'blogs'])->name('blog');
+        Route::post('contact', [AppController::class, 'contact'])->name('contact');
     }
 );
 

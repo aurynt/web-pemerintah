@@ -31,8 +31,8 @@ export default function Blog({ data }: { data: Post[] }) {
                 </div>
             </div>
             <div className="flex sm:justify-center sm:flex-row flex-col overflow-scroll items-center gap-4">
-                {data.map((item) => (
-                    <div className="h-full min-w-80 max-w-80 item">
+                {data.map((item, i) => (
+                    <div key={i} className="h-full min-w-80 max-w-80 item">
                         <div className="overflow-scroll h-52">
                             <img
                                 className="h-full"

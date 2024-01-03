@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMessageJob;
 use App\Models\About;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Setting;
+use App\Mail\SendMessage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -95,5 +98,26 @@ class AppController extends Controller
                 ->join('users', 'users.id', '=', 'posts.users_id')->join('categories', 'categories.id', '=', 'posts.categories_id')->where('posts.id', '=', $id)->get()[0],
         ];
         return Inertia::render('Blog/Detail', $data);
+    }
+
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'surname' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+        $setting = Setting::find(1);
+        $data = [
+            'to' => $setting->email,
+            'name' => $request->email,
+            'email' => $request->email,
+            'pesan' => $request->message,
+            'subject' => $request->subject,
+            'surname' => $request->surname,
+        ];
+        dispatch(new SendMessageJob($data));
     }
 }
