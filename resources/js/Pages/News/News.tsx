@@ -1,14 +1,12 @@
-import DangerButton from "@/Components/DangerButton";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Select from "@/Components/Select";
 import TextInput from "@/Components/TextInput";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 import { PageProps, Post, Category } from "@/types";
-import { Head, useForm, Link } from "@inertiajs/react";
-import { FormEventHandler, useState } from "react";
+import { Head, useForm } from "@inertiajs/react";
+import { FormEventHandler } from "react";
 import Swal from "sweetalert2";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -20,24 +18,13 @@ export default function News({
     posts,
     categories,
 }: PageProps<{ posts: Post[]; categories: Category[] }>) {
-    const {
-        reset,
-        data,
-        setData,
-        post,
-        processing,
-        progress,
-        errors,
-        delete: destroy,
-        patch,
-    } = useForm(
-        {
+    const { reset, data, setData, post, processing, progress, errors } =
+        useForm({
             title: "",
             category: 0,
             photo: undefined,
             information: "",
-        } || { name: "" }
-    );
+        });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -176,7 +163,6 @@ export default function News({
                                                 htmlFor="information"
                                                 value="information"
                                             />
-
                                             <textarea
                                                 onChange={(e) =>
                                                     setData(
@@ -190,7 +176,7 @@ export default function News({
                                                 className="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
                                                 rows={10}
                                             ></textarea>
-
+                                            s
                                             <InputError
                                                 message={errors.information}
                                             />

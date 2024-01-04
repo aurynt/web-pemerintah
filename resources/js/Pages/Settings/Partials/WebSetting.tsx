@@ -15,9 +15,9 @@ export default function WebSetting({
     className?: string;
     setting: Setting;
 }) {
-    const { data, setData, errors, patch, processing, recentlySuccessful } =
+    const { data, setData, errors, post, processing, recentlySuccessful } =
         useForm({
-            logo: setting.logo,
+            logo: undefined,
             email: setting.email,
             desc: setting.desc,
             address: setting.address,
@@ -27,9 +27,9 @@ export default function WebSetting({
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        patch(route("setting.update"), {
+        post(route("setting.update"), {
             preserveScroll: true,
-            onSuccess: () => {
+            onSuccess: (mess) => {
                 Swal.fire({
                     title: "Success",
                     text: "Succesfully added post",
@@ -64,12 +64,12 @@ export default function WebSetting({
                 </div>
 
                 <div>
-                    <img src={`storage/logo/${data.logo}`} alt="logo" />
+                    {/* <img src={`storage/logo/${data.logo}`} alt="logo" /> */}
                     <InputLabel htmlFor="logo" value="Logo" />
 
                     <TextInput
                         id="logo"
-                        onChange={(e) => setData("logo", e.target.value)}
+                        onChange={(e) => setData("logo", e.target.files[0])}
                         type="file"
                         className="mt-1 block w-full border-collapse border p-2"
                         autoComplete="new-logo"

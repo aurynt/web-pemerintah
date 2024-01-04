@@ -35,15 +35,16 @@ export default function Blog({ data }: { data: Post[] }) {
                     <div key={i} className="h-full min-w-80 max-w-80 item">
                         <div className="overflow-scroll h-52">
                             <img
-                                className="h-full"
+                                className="h-full "
                                 src={`storage/post/${item.photo}`}
                                 alt={item.title}
                             />
                         </div>
                         <div className="down-content">
-                            <h4>{item.title}</h4>
-                            <Link href="#">
-                                <i className="fa fa-link" />
+                            <Link href={route("blog.detail", item.id)}>
+                                <h4 className="line-clamp-4 hover:text-purple-600">
+                                    {item.title}
+                                </h4>
                             </Link>
                         </div>
                     </div>

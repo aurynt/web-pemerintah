@@ -988,27 +988,11 @@ Projects Style
   position: relative;
 }
 
-.projects .item .down-content h4 {
+.projects .item .down-content a {
   font-size: 20px;
   color: #2a2a2a;
   line-height: 30px;
   width: 75%;
-}
-
-.projects .item .down-content a {
-  width: 46px;
-  height: 46px;
-  display: inline-block;
-  line-height: 46px;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 50%;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  color: #5b03e4;
-  transform: translateY(-23px);
 }
 
 .projects .owl-nav {

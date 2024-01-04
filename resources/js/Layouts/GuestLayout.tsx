@@ -1,5 +1,5 @@
-import { Head, Link } from "@inertiajs/react";
-import { PropsWithChildren } from "react";
+import { Head } from "@inertiajs/react";
+import { PropsWithChildren, Suspense } from "react";
 import "../../../public/assets/css/templatemo-tale-seo-agency.css";
 import "../../../public/assets/css/owl.css";
 import "../../../public/assets/css/animate.css";
@@ -11,7 +11,8 @@ import Footer from "@/Components/tale/Footer";
 export default function Guest({
     children,
     title,
-}: PropsWithChildren<{ title: string }>) {
+    logo,
+}: PropsWithChildren<{ title: string; logo: string }>) {
     return (
         <>
             <Head>
@@ -39,14 +40,25 @@ export default function Guest({
                 <script src="assets/js/popup.js"></script>
                 <script src="assets/js/custom.js"></script>
             </Head>
-            {/* ***** Header Area Start ***** */}
-            <Header />
-            {/* ***** Header Area End ***** */}
-            {children}
-            {/* {children} */}
-            <Footer />
-            {/* Scripts */}
-            {/* Bootstrap core JavaScript */}
+            <Suspense
+                fallback={
+                    <div id="js-preloader" className="js-preloader">
+                        <div className="preloader-inner">
+                            <span className="dot"></span>
+                            <div className="dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            >
+                <Header logo={logo} />
+                {children}
+                <Footer />
+            </Suspense>
+            \
         </>
     );
 }

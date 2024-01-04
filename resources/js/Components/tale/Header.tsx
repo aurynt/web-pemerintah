@@ -1,7 +1,6 @@
 import { Link } from "@inertiajs/react";
-import logo from "../../../../public/assets/images/liputan6.png";
-
-export default function Header() {
+import logoImg from "./../../../../public/assets/images/logo.png";
+export default function Header({ logo }: { logo: string }) {
     return (
         <header className="header-area header-sticky">
             <div className="container">
@@ -11,9 +10,11 @@ export default function Header() {
                             {/* ***** Logo Start ***** */}
                             <Link href="/" className="logo">
                                 <img
-                                    src={logo}
+                                    src={
+                                        logoImg
+                                    } /* {`/storage/logo/${logo}`} */
                                     alt=""
-                                    style={{ maxWidth: 160 }}
+                                    style={{ maxWidth: 110 }}
                                 />
                             </Link>
                             {/* ***** Logo End ***** */}

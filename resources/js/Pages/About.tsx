@@ -1,11 +1,17 @@
 import Banner from "@/Components/tale/Banner";
 import HappyClientSection from "@/Components/tale/HappyClientSection";
 import Guest from "@/Layouts/GuestLayout";
-import type { About } from "@/types";
+import type { About, Setting } from "@/types";
 
-export default function About({ about }: { about: About }) {
+export default function About({
+    about,
+    setting,
+}: {
+    about: About;
+    setting: Setting;
+}) {
     return (
-        <Guest title={"About"}>
+        <Guest title={"About"} logo={setting.logo}>
             <Banner>
                 <div className="caption  header-text">
                     <h6>

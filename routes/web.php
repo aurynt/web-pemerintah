@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('category/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
     Route::post('category', [CategoryController::class, 'store'])->name('category.add');
     Route::patch('about', [AboutController::class, 'update'])->name('about.update');
-    Route::patch('setting', [SettingController::class, 'update'])->name('setting.update');
+    Route::post('setting', [SettingController::class, 'update'])->name('setting.update');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/settings', [AppController::class, 'settings'])->name('profile.settings');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -21,7 +21,7 @@ export default function Blogs({
     };
     return (
         <BlogLayout>
-            <div className="flex gap-3 border-b-2 pb-2 px-4 sm:px-20 overflow-x-scroll">
+            <div className="flex gap-3 border-b-2 pb-2 px-4 sm:px-48 overflow-x-scroll">
                 <button
                     onClick={() => filterBy(0)}
                     className={`hover:text-blue-700 capitalize ${
@@ -36,7 +36,7 @@ export default function Blogs({
                         onClick={() => filterBy(item.id)}
                         className={`hover:text-blue-700 capitalize ${
                             id == item.id
-                                ? "text-blue-700 bg-blue-200 rounded px-6"
+                                ? "text-blue-700 bg-blue-200 rounded px-6 sm:px-0"
                                 : ""
                         } transition-all duration-300 ease-in-out`}
                     >
@@ -51,7 +51,7 @@ export default function Blogs({
                         key={i}
                         className="flex border mx-3 sm:mx-40 my-4 flex-col sm:flex-row shadow-lg rounded-xl"
                     >
-                        <div className="h-44 w-full sm:w-[30rem] overflow-hidden border-r sm:rounded-l-xl">
+                        <div className="w-full sm:w-[30rem] overflow-hidden border-r sm:rounded-l-xl">
                             <img
                                 className="w-full h-full overflow-hidden"
                                 src={`storage/post/${item.photo}`}
@@ -73,8 +73,8 @@ export default function Blogs({
                     </div>
                 ))
             ) : (
-                <div className="flex gap-4 border m-10 justify-center shadow rounded-lg p-3">
-                    <h1 className="text-2xl font-bold">Emty</h1>
+                <div className="flex justify-center items-center w-full h-[80vh]">
+                    <h1 className="text-2xl font-bold text-gray-400">Emty</h1>
                 </div>
             )}
         </BlogLayout>

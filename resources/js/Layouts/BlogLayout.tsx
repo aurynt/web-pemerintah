@@ -1,5 +1,4 @@
 import Header from "@/Pages/Blog/partial/Header";
-import { Category } from "@/types";
 import { Head } from "@inertiajs/react";
 import { type PropsWithChildren } from "react";
 

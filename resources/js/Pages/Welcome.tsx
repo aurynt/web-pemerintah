@@ -13,7 +13,7 @@ export default function Welcome({
     posts: Post[];
 }) {
     return (
-        <Guest title="Home">
+        <Guest title="Home" logo={setting.logo}>
             <Banner>
                 <h6>
                     LIPUTAN6
